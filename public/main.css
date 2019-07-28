@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(
+    to right,
+    #0079a4 0%,
+    #0165cb 52%,
+    #003e71 100%
+  );
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* .container defines the layout of the application */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Header contains application name and current username */
+.header {
+  grid-column: 1 / -1;
+  grid-row: 1;
+
+  height: 2.5rem;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  padding: 0 0.6rem;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__title {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.header__current-user {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+/* .users sidebar left show all logged in users */
+.users {
+  grid-column: 1;
+  grid-row: 2;
+
+  margin: 0.3rem;
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  background-color: rgba(255, 255, 255, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+/* In mobile users are shown in a row under header */
+@media only screen and (max-width: 600px) {
+  .users {
+    flex-direction: row;
+
+    align-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+.users__title {
+  margin: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #fff;
+}
+
+/* .messages shows area for writing a new message and all messages send
+   to the chat. */
+.messages {
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* In mobile messages are shown in 3 row */
+@media only screen and (max-width: 600px) {
+  .messages {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
+
+/* Login form is show to user before user can see messages */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-form--hidden {
+  display: none;
+}
+.login-form__welcome-text {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.login-form__ask-username {
+  width: 18rem;
+}
+.login-form__label {
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #fff;
+}
+.login-form__input {
+  margin: 0.3rem 0;
+  width: 94%;
+  border-radius: 0.3rem;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #00f;
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.55);
+}
+.login-form__input:focus {
+  outline: none;
+}
+.login-form__error-message {
+  margin-top: 0.5rem;
+  color: red;
+}
+
+/* button used in the application */
+.button {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  border: none;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: bold;
+  background-color: rgb(32, 220, 0);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.55);
+}
+.button:hover {
+  background-color: rgb(64, 255, 0);
+}
+.button:focus {
+  outline: none;
+}
+.button[disabled] {
+  background-color: rgb(0, 120, 0);
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+  color: #ccc;
+  cursor: default;
+}
+
+/* in .message-form user types in a new message and sends it to the chat */
+.message-form {
+  margin-top: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 90%;
+}
+.message-form--hidden {
+  display: none;
+}
+.message-form__label {
+  margin-bottom: 0.2rem;
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #fff;
+}
+.message-form__message {
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: #c0daff;
+  color: #000;
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.55);
+}
+.message-form__message:focus {
+  background-color: rgb(210, 255, 230);
+  outline: none;
+}
+
+/* .chat contains all messages send to the chat */
+.chat {
+  margin-top: 0.8rem;
+  align-self: stretch;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.3rem;
+  padding: 0.4rem;
+}
+.chat--hidden {
+  display: none;
+}
+.chat__title {
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #fff;
+}
+.chat__message {
+  white-space: pre-wrap;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+/* .user shows a logged in username */
+.user {
+  display: inline-block;
+  background-color: #fff;
+  color: rgb(0, 0, 255);
+  font-size: 1rem;
+  font-weight: normal;
+  border-radius: 0.4rem;
+  margin: 0.2rem;
+  padding: 0.2rem 0.4rem;
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.55);
+}
+
+/* blinking animation is shown for a user who is typing */
+.user--is-typing {
+  animation: blink 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes blink {
+  50% {
+    color: black;
+    background-color: rgb(200, 200, 255);
+  }
+}
+/* In wider screens also 'is typing' text in shown */
+@media only screen and (min-width: 600px) {
+  .user--is-typing::after {
+    content: ' is typing...';
+  }
+}
+
+/* .speech-bubble shows one chat message
+   https://leaverou.github.io/bubbly/ */
+.speech-bubble {
+  margin-left: 1rem;
+  position: relative;
+  background-color: #c0daff;
+  border-radius: 0.4em;
+  padding: 0.4rem;
+  font-size: 1rem;
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.55);
+}
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #c0daff;
+  border-left: 0;
+  margin-top: -10px;
+  margin-left: -10px;
+}

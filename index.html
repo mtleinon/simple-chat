@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+    <title>Simple chat</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <header class="header">
+        <div class="header__title">Simple Chat</div>
+        <div class="header__current-user">
+          User:
+          <div id="current-user" class="user">-</div>
+        </div>
+      </header>
+
+      <aside id="users" class="users">
+        <!-- Users are added dynamically with Javascript -->
+      </aside>
+
+      <section class="messages">
+        <form class="login-form" id="login-form">
+          <div class="login-form__welcome-text">
+            Welcome to socketIO chat demo
+          </div>
+          <div class="login-form__ask-username">
+            <label class="login-form__label" for="username"
+              >Give username for chat</label
+            >
+            <input
+              class="login-form__input"
+              type="text"
+              id="username"
+              autocomplete="off"
+              autofocus
+            />
+            <button class="button" id="join-button" disabled>
+              Give username first
+            </button>
+
+            <p class="login-form__error-message" id="error-message"></p>
+          </div>
+        </form>
+
+        <form id="message-form" class="message-form message-form--hidden">
+          <label id="message-label" class="message-form__label" for="message"
+            >Enter message:</label
+          >
+          <textarea
+            name="message"
+            class="message-form__message"
+            id="message"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <button class="button" id="message-button" disabled>
+            Enter message first
+          </button>
+        </form>
+
+        <section id="chat" class="chat chat--hidden">
+          <h3 class="chat__title">Messages:</h3>
+          <section id="messages">
+            <!-- Messages are added at run time -->
+          </section>
+        </section>
+      </section>
+    </div>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
