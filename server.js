@@ -4,13 +4,14 @@ const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 const users = [];
 const port = process.env.PORT || 3000;
+
 server.listen(port, () => {
   console.log('listening port', port);
 });
 
 // Send chat client to browser
 app.use(express.static(__dirname + '/public'));
-app.get('/', function(_, res) {
+app.get('/', function (_, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
@@ -27,7 +28,7 @@ io.on('connection', socket => {
   socket.on('disconnect', reason => {
     console.log(
       `disconnected: ${socket.id}, username: ${
-        socket.username
+      socket.username
       }, reason ${reason}`
     );
 
