@@ -1,6 +1,6 @@
-# simple-chat
+# Simple Chat
 
-Simple chat application made with socket.io, Node and Express.
+A Simple chat application made with socket.io, Node and Express.
 
 ## Try the app
 
