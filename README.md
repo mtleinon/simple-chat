@@ -9,6 +9,6 @@ You can try the app with the following link: https://simple-chat-mika.herokuapp.
 ## App Demo
 
 The video below shows how to use the app:
-<video width="600">
-  <source src="https://www.loom.com/share/ab914d89f9cc4124bbe372cd0cb7e81b">
-</video>
+
+https://www.loom.com/share/ab914d89f9cc4124bbe372cd0cb7e81b
+
